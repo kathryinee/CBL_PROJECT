@@ -41,62 +41,62 @@ $(document).ready(function() {
 			if (document.getElementById("optionsRadio1").checked) {
 				newspaperScore = 0;
 			} else {
-				newspaperScore = 184;
+				newspaperScore = - 184;
 			}
 			// console.log("Newspaper score is: " + newspaperScore);
 
 			if (document.getElementById("optionsRadio3").checked) {
 				alumTinScore = 0;
 			} else {
-				alumTinScore = 166;
+				alumTinScore = - 166;
 			}
 			// console.log("Aluminum and tin score is: " + alumTinScore);
 
 			if (electricInput === 0 || electricInput === "undefined") {
 				electricScore = 0;
 			} else {
-				electricScore = electricInput *274;
+				electricScore = electricInput *0.03 *0.03 *12 *0.52;
 			}
 			// console.log("Electric score is: " + electricScore);
 
 			if (gasInput === 0 || gasInput === "undefined") {
 				gasScore = 0;
 			} else {
-				gasScore = gasInput *0.00103;
+				gasScore = gasInput *0.03 * 31 * 12;
 			}
 			// console.log("Gas score is: " + gasScore);
 
 			if (oilInput === 0 || oilInput === "undefined") {
 				oilScore = 0;
 			} else {
-				oilScore = oilInput/ 0.12 * 1000 * 113;
+				oilScore = oilInput *365 /25 *19.6;
 			}
 			// console.log("Oil score is: " + oilScore);
 
 			if (carInput === 0 || carInput === "undefined") {
 				carScore = 0;
 			} else {
-				carScore = carInput *.79/365 ;
+				carScore = carInput *31 *12 *13.46;
 			}
 			// console.log("Car score is: " + carScore);
 		
 			if (flights4LessInput === 0 || flights4LessInput === "undefined") {
 				flights4LessScore = 0;
 			} else {
-				flights4LessScore = flights4LessInput * 1100;
+				flights4LessScore = flights4LessInput * .42;
 			}
 			// console.log("Flights taken 4 hours or less score is: " + flights4LessScore);
 
 			if (flights4MoreInput === 0 || flights4MoreInput === "undefined") {
 				flights4MoreScore = 0;
 			} else {
-				flights4MoreScore = flights4MoreInput * 4400;
+				flights4MoreScore = flights4MoreInput * .53;
 			}
 			// console.log("Flights taken 4 hours or more score is: " + flights4MoreScore);
 
 			// calculate scores for each category
-			var energyScore = electricScore + gasScore + oilScore;
-			var travelScore = carScore	+ flights4LessScore + flights4MoreScore;
+			var energyScore = electricScore + gasScore;
+			var travelScore = carScore	+ oilScore + flights4LessScore + flights4MoreScore;
 			var wasteScore = newspaperScore + alumTinScore;
 
 			// calculate total score and round to nearest whole integer
